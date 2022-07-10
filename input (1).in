@@ -1,0 +1,27 @@
+4 183 113 183 183
+0 0 0                                                       ! RESTART, STEADY, Grid2d
+101325.0, 294.4, 90000.0, 92500.0, 294.4, 0.1854, 0.0, 0.4, 100000, 0.1854, 0.0   !Pstag, Tstag, Pexit, Twall, L_Char, alpha_aoa, Mach_in, Re, Lref, phi_bw 
+2                                      ! ORDER - 1:E2, 2:E4, 3:C4, 4:C6
+2,2                                     ! BOUNDARY ORDER - 1pt(E:1-6 C:2-6), 2pt(DE:1-6 AC:4-6)
+2,2,2                                   ! ORDER in K-direction - Change if no. of pts in k is less; scheme, inner order, boundary order
+0.49                             ! alpha_f
+4,4,4         			! FILTER_ORDER (2:2:10), FILTER BOUNDARY ORDER (2:10), filter order in k
+1,0.5,1000,10,1e-05,1               	!Time integration (1:RK4, 2:Beam and Warming), CFL, nsteps
+0,2                                       ! NSCBC
+0,0.001,4,1.6,2.08124,-10.0,-10.0,-28.7302,-25.0,100.0,100.0                             ! SPONGE, a, n, Xl,Xh,Yl,Yh,Zl,Zh 
+0,0,1                                                    ! Inviscid_Flag, set_targets
+0,1,1,500000                                         ! Animation, anim_no., anim_freq, backup_freq
+0,0                                     !average_flag, averaging_restart 
+0,0,0                                   ! Self periodicity in i,j,k directions
+0                                       !bulkturb
+0,0                                     !channel, channel_restart
+0,0                                       !taylor
+0,0,0,2.4e-4            ! ibm,mu1_flag, BODY_MOVING,DELTA_X 
+15738,31304,14229,5558625     ! nodes, elements, SPTS1_limit, totfluidpts
+0,0,0
+0.0,0.0,0.0,300.0                       !IB_VELOCITY_X, IB_VELOCITY_Y, IB_VELOCITY_Z, IB_TEMPERATURE
+0,0,0                                       !SKEW_SYMMETRIC ON OR OFF
+0,4					!probe, probepoints
+0 1000 2 0.056 2.63 0.686042 1.0 10	!Turb_case (1:Jarrin 2: DF), N_ed, func (1:step 2:tent), sigma/LS, Lx, Ly, Lz, TI (Turbulent Intensity)
+5.93 3.57 1.97				!Dx, Dy, Dz
+0
